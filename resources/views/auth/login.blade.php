@@ -137,18 +137,19 @@
             var form = layui.form,
                 layer = layui.layer;
 
-            // 登录过期的时候，跳出ifram框架
-            if (top.location != self.location) top.location = self.location;
-
             // 进行登录操作
             form.on('submit(login)', function (data) {
                 $.ajax({
-                    type:'post',
-                    url:"{{ url('login') }}",
-                    data:data.field,
-                    success:function(result){
+                    type: 'post',
+                    url: "{{ url('login') }}",
+                    data: data.field,
+                    success: function (result) {
+                        if (result.code == 0) {
+                            location.href = "{{ url('/home') }}";
+                        } else {
+                            layer.msg(result.msg);
+                        }
                         console.log(result);
-                        {{--location.href = "{{ url('/') }}";--}}
                     }
                 });
                 return false;

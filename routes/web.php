@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//登录
 Route::get('/login', "LoginController@getLoginForm");
 Route::post('/login', "LoginController@login");
+
+//需认证路由
+Route::group(['middleware' => 'auth'],function (){
+    Route::get('/', "HomeController@index");
+    Route::get('/home', "HomeController@index");
+});
 

@@ -39,7 +39,7 @@ class LoginController extends Controller
             // 通过认证..
             return AjaxResult::success();
         }else{
-            return AjaxResult::success();
+            return AjaxResult::error("用户名或密码错误！");
         }
     }
 }
