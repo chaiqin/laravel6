@@ -111,16 +111,17 @@
             <div class="admin-header">
                 <span>layuimini</span>
             </div>
-            <form class="layui-form" action="">
+            <form class="layui-form">
+                @csrf
                 <div>
                     <i class="layui-icon layui-icon-username admin-icon"></i>
-                    <input type="text" name="username" placeholder="请输入用户名" autocomplete="off"
-                           class="layui-input admin-input admin-input-username" value="admin">
+                    <input type="text" name="name" placeholder="请输入用户名" autocomplete="off"
+                           class="layui-input admin-input admin-input-username">
                 </div>
                 <div>
                     <i class="layui-icon layui-icon-password admin-icon"></i>
                     <input type="password" name="password" placeholder="请输入密码" autocomplete="off"
-                           class="layui-input admin-input" value="123456">
+                           class="layui-input admin-input">
                 </div>
                 <div>
                     <input type="text" name="captcha" placeholder="请输入验证码" autocomplete="off"
@@ -141,24 +142,18 @@
 
             // 进行登录操作
             form.on('submit(login)', function (data) {
-                data = data.field;
-                if (data.username == '') {
-                    layer.msg('用户名不能为空');
-                    return false;
-                }
-                if (data.password == '') {
-                    layer.msg('密码不能为空');
-                    return false;
-                }
-                if (data.captcha == '') {
-                    layer.msg('验证码不能为空');
-                    return false;
-                }
-                layer.msg('登录成功', function () {
-                    window.location = '/index.html';
+                $.ajax({
+                    type:'post',
+                    url:"{{ url('login') }}",
+                    data:data.field,
+                    success:function(result){
+                        console.log(result);
+                        {{--location.href = "{{ url('/') }}";--}}
+                    }
                 });
                 return false;
             });
+
         });
     </script>
 @endsection
