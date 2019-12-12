@@ -11,9 +11,10 @@
 |
 */
 
-//登录
-Route::get('/login', "LoginController@getLoginForm");
-Route::post('/login', "LoginController@login");
+//登录注册
+Route::get('/login', "Auth\LoginController@getLoginForm");
+Route::post('/login', "Auth\LoginController@login");
+Route::get('/logout', "Auth\LoginController@logout");
 
 //需认证路由
 Route::group(['middleware' => 'auth'],function (){
