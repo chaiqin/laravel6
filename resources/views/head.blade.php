@@ -14,9 +14,7 @@
     <script src="{{ asset('layuimini/lib/layui-v2.5.4/layui.js') }}" charset="utf-8"></script>
     <script src="{{ asset('layuimini/lib/jquery-3.4.1/jquery-3.4.1.min.js') }}" charset="utf-8"></script>
 
-    @yield('style')
+    @yield('head')
 </head>
-<body>
-    @yield('content')
-</body>
+    @yield('body')
 </html>

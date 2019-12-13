@@ -60,6 +60,7 @@ return [
     ],
     'url'                  => ':attribute 无效的格式',
     'timezone'             => ':attribute 必须个有效的时区',
+    'captcha'              => ':attribute 不正确。',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -93,5 +94,6 @@ return [
         'password' => '密码',
         'content'  => '内容',
         'identity' => '手机号/用户名',
+        'captcha'  => '验证码',
     ],
 ];

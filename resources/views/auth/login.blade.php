@@ -1,6 +1,6 @@
 @extends('head')
 
-@section('style')
+@section('head')
     <style>
         body {
             background-image: url("{{ URL::asset('layuimini/images/bg.jpg') }}");
@@ -104,7 +104,8 @@
     </style>
 @endsection
 
-@section('content')
+@section('body')
+    <body>
     <div id="container">
         <div></div>
         <div class="admin-login-background">
@@ -126,7 +127,7 @@
                 <div>
                     <input type="text" name="captcha" placeholder="请输入验证码" autocomplete="off"
                            class="layui-input admin-input admin-input-verify" value="xszg">
-                    <img class="admin-captcha" width="90" height="30" src="../images/captcha.jpg">
+                    <img class="admin-captcha" width="90" height="30" src="{{captcha_src()}}" onclick="this.src='{{captcha_src()}}'+Math.random()">
                 </div>
                 <button class="layui-btn admin-button" lay-submit="" lay-filter="login">登 陆</button>
             </form>
@@ -157,4 +158,5 @@
 
         });
     </script>
+    </body>
 @endsection

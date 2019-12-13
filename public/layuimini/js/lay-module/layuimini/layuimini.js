@@ -41,23 +41,19 @@ layui.define(["element", "jquery"], function (exports) {
          * 初始化
          * @param url
          */
-        this.init = function (url) {
+        this.init = function (data) {
             var loading = layer.load(0, {shade: false, time: 2 * 1000});
             layuimini.initBgColor();
             layuimini.initDevice();
-            $.getJSON(url, function (data, status) {
-                if (data == null) {
-                    layuimini.msg_error('暂无菜单信息');
-                } else {
-                    layuimini.initHome(data.homeInfo);
-                    layuimini.initLogo(data.logoInfo);
-                    layuimini.initClear(data.clearInfo);
-                    layuimini.initMenu(data.menuInfo);
-                    layuimini.initTab();
-                }
-            }).fail(function () {
-                layuimini.msg_error('菜单接口有误');
-            });
+            if (data == null) {
+                layuimini.msg_error('暂无菜单信息');
+            } else {
+                layuimini.initHome(data.homeInfo);
+                layuimini.initLogo(data.logoInfo);
+                layuimini.initClear(data.clearInfo);
+                layuimini.initMenu(data.menuInfo);
+                layuimini.initTab();
+            }
             layer.close(loading);
         };
 
