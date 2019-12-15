@@ -264,43 +264,21 @@
                         ]
                     },
                     "other": {
-                        "title": "其它管理",
+                        "title": "系统管理",
                         "icon": "fa fa-slideshare",
                         "child": [
                             {
-                                "title": "多级菜单",
+                                "title": "用户管理",
                                 "href": "",
                                 "icon": "fa fa-meetup",
                                 "target": "",
                                 "child": [
                                     {
-                                        "title": "按钮1",
-                                        "href": "page/button.html",
-                                        "icon": "fa fa-calendar",
-                                        "target": "_self",
-                                        "child": [
-                                            {
-                                                "title": "按钮2",
-                                                "href": "page/button.html",
-                                                "icon": "fa fa-snowflake-o",
-                                                "target": "_self",
-                                                "child": [
-                                                    {
-                                                        "title": "按钮3",
-                                                        "href": "page/button.html",
-                                                        "icon": "fa fa-snowflake-o",
-                                                        "target": "_self"
-                                                    },
-                                                    {
-                                                        "title": "表单4",
-                                                        "href": "page/form.html",
-                                                        "icon": "fa fa-calendar",
-                                                        "target": "_self"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
+                                        "title": "用户列表",
+                                        "href": "/admin/index",
+                                        "icon": "fa fa-tachometer",
+                                        "target": "_self"
+                                    },
                                 ]
                             },
                             {

@@ -15,7 +15,7 @@ class AjaxResult
      * @param string $data
      * @return array
      */
-    public static function success($msg='',$data='')
+    public static function success($msg = '', $data = '')
     {
         return [
             'code' => 0,
@@ -30,11 +30,28 @@ class AjaxResult
      * @param string $data
      * @return array
      */
-    public static function error($msg='',$data='')
+    public static function error($msg = '', $data = '')
     {
         return [
             'code' => 1,
             'msg' => $msg,
+            'data' => $data
+        ];
+    }
+
+    /**
+     * 返回表格请求
+     * @param string $count 个数
+     * @param string $msg
+     * @param string $data 列表数组
+     * @return array
+     */
+    public static function pageReturn($count = '', $data = '', $msg = '')
+    {
+        return [
+            'code' => 0,
+            'msg' => $msg,
+            'count' => $count,
             'data' => $data
         ];
     }

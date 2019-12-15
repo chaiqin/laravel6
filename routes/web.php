@@ -20,5 +20,11 @@ Route::get('/logout', "Auth\LoginController@logout");
 Route::group(['middleware' => 'auth'],function (){
     Route::get('/', "HomeController@index");
     Route::get('/home', "HomeController@index");
+
+    //用户管理
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('index', "UserController@index");
+        Route::get('getList', "UserController@getList");
+    });
 });
 
